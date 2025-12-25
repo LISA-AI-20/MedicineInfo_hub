@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MedKart | Medicine Info</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<nav class="navbar">
+  <div class="nav-content">
+    <div class="menu-toggle" onclick="openSidebar()">☰</div>
+    <div class="logo">Med<span>Kart</span></div>
+
+    <div class="search-container">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Search medicine, usage...">
+    </div>
+  </div>
+</nav>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <h3>Filters & Settings</h3>
+  </div>
+
+  <div class="filter-group">
+    <label>Category</label>
+    <select id="filterCategory" onchange="applyFilters()">
+      <option value="all">All Types</option>
+      <option value="tablet">Tablets</option>
+      <option value="powder">Powders</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label>Age Group</label>
+    <select id="filterAge" onchange="applyFilters()">
+      <option value="all">All Ages</option>
+      <option value="child">Child</option>
+      <option value="adult">Adult</option>
+      <option value="senior">Senior</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label>Sort Order</label>
+    <select id="sortOrder" onchange="applyFilters()">
+      <option value="default">Default</option>
+      <option value="price-low">Price: Low to High</option>
+      <option value="price-high">Price: High to Low</option>
+      <option value="name-az">Name: A - Z</option>
+    </select>
+  </div>
+
+  <div class="setting-item">
+    <span>🌙 Dark Mode</span>
+    <label class="switch">
+      <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <button class="reset-btn" onclick="resetFilters()">Reset All</button>
+</aside>
+
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+<main class="container">
+  <header class="page-header">
+    <h1>Medicine Information Hub</h1>
+  </header>
+
+  <div class="medicine-grid" id="medicineGrid"></div>
+
+  <section class="details-modal hidden" id="detailsSection"></section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
