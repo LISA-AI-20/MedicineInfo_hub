@@ -3,7 +3,7 @@
   "medicines": [
     {
       "name": "Paracetamol 500mg",
-      "image": "images/paracetamol.png",
+      "image": "images/Paracetamol.png",
       "short": "Fever & mild pain",
       "price": "₹20 – ₹40",
       "category": "tablet",
@@ -231,3 +231,4 @@
     }
   ]
 }
+
