@@ -65,11 +65,18 @@ function applyFilters() {
     return;
   }
 
-  let filtered = medicines.filter(m =>
-    m.name.toLowerCase().includes(search) &&
+  let filtered = medicines.filter(m => {
+  const symptomText = (m.short + " " + m.details).toLowerCase();
+
+  const matchesSearch =
+    search === "" || symptomText.includes(search);
+
+  return (
+    matchesSearch &&
     (category === "all" || m.category === category) &&
     (age === "all" || m.ageGroup.includes(age))
   );
+});
 
   if (sort === "price-low") {
     filtered.sort((a, b) => getPriceValue(a.price) - getPriceValue(b.price));
